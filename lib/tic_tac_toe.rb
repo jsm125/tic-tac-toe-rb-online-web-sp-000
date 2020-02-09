@@ -85,6 +85,9 @@ def display_board(board)
 end
 
 def play(board)
+  if !over?(board)
+    turn(board)
+    play
   current_player(board)
   turn(board)
   over?(board)
