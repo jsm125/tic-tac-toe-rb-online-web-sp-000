@@ -84,19 +84,6 @@ def display_board(board)
   puts " #{board[6]} | #{board[7]} | #{board[8]} "
 end
 
-def play(board)
-  if !over?(board)
-    turn(board)
-    play(board)
-  elsif won?(board)
-    winner = winner(board)
-    puts "Congratulations #{winner}!"
-  else
-    draw?(board)
-      puts "Cat's Game!"
-  end
-end
-
 def turn_count(board)
 counter = 0
   board.each do |n|
@@ -124,5 +111,18 @@ def turn(board)
     display_board(board)
   else
     turn(board)
+  end
+end
+
+def play(board)
+  if !over?(board)
+    turn(board)
+    play(board)
+  elsif won?(board)
+    winner = winner(board)
+    puts "Congratulations #{winner}!"
+  else
+    draw?(board)
+      puts "Cat's Game!"
   end
 end
