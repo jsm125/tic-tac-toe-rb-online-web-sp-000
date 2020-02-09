@@ -87,12 +87,14 @@ end
 def play(board)
   if !over?(board)
     turn(board)
-    current_player(board)
-  turn(board)
-  over?(board)
-  draw(board)
-  winner(board)
-  
+    play(board)
+  elsif won?(board)
+    winner = winner(board)
+    puts "Congratulations #{winner}!"
+  else
+    draw?(board)
+      puts "Cat's Game!"
+  end
 end
 
 def turn_count(board)
